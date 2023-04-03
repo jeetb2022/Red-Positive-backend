@@ -105,7 +105,7 @@ htmlData += `
 
 var mailOptions = {
     from: 'Jeet Bhadaniya <jeetbhadaniya1228@gmail.com>',
-    to: 'tejaspansuriya46@gmail.com',
+    to: 'info@redpositive.in',
     subject: 'Details of Users',
     // html: ejs.renderFile(__dirname + '/index.ejs', { data: data })
     html: htmlData
