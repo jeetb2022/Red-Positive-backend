@@ -149,8 +149,8 @@ const mailData = {
       name: `Jeet Bhadaniya`,
       address: "jeetbhadaniya1228@gmail.com",
   },
-  to: "tejaspansuriya@gmail.com",
-  subject: `form message`,
+  to: "jeetbhadaniya@gmail.com",
+  subject: `details for Interns`,
   html: htmlData,
 };
 
