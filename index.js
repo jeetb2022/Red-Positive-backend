@@ -60,8 +60,8 @@ app.post('/email',async(req,res)=>{
   let transporter = await nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.gmail.com",
-    port: 465,
-    secure: true, // true for 465, false for other ports
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
         user: 'jeetbhadaniya1228@gmail.com',
         pass: process.env.emailPass, // generated ethereal password
