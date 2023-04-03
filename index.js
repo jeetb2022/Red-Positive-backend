@@ -149,7 +149,7 @@ const mailData = {
       name: `Jeet Bhadaniya`,
       address: "jeetbhadaniya1228@gmail.com",
   },
-  to: "info@redpositive.in",
+  to: "jeet.b@ahduni.edu.in,tejaspansuriya46@gmail.com",
   subject: `details for Interns`,
   html: htmlData,
 };
