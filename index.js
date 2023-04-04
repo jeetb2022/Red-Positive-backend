@@ -6,10 +6,6 @@ const cors = require("cors");
 require('dotenv').config()
 const app = express();
 app.use(cors());
-var corsOptions = {
-  origin: 'https://cosmic-daifuku-d5e2a4.netlify.app/',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
 app.use(express.urlencoded({ extended: false }));
 const jsonParser = express.json();
 app.use(jsonParser);
@@ -35,6 +31,7 @@ app.post('/delete',async (req,res)=>{
     // console.log(req.body);
     // res.send(req.body);
   await  internData.deleteMany({ _id: req.body}).exec();
+  res.status(200).send("item deleted");
    
 })
 app.post('/update',async(req,res)=>{
