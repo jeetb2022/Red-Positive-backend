@@ -31,7 +31,7 @@ app.post('/delete',async (req,res)=>{
     // console.log(req.body);
     // res.send(req.body);
   await  internData.deleteMany({ _id: req.body}).exec();
-  res.status(200).send("item deleted");
+ await res.status(200).send("item deleted");
    
 })
 app.post('/update',async(req,res)=>{
