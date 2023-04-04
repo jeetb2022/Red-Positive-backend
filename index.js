@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 const jsonParser = express.json();
 app.use(jsonParser);
 app.post('/add',cors(), async (req,res)=>{
-  internData.deleteOne({ _id : null}).exec();
+ await internData.deleteOne({ _id : null}).exec();
   var myData = new internData({
     intern_name : req.body.intern_name,
     intern_email : req.body.intern_email,
@@ -44,7 +44,7 @@ app.post('/update',cors(), async(req,res)=>{
       intern_hobbies : req.body.intern_hobbies
     });
     console.log(myData);
-    myData.save()
+   await myData.save()
       .then(item => {
         console.log(("item saved to database"));
       })
