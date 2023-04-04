@@ -6,13 +6,10 @@ const cors = require("cors");
 require('dotenv').config()
 const app = express();
 app.use(cors());
-app.use(function (req, res, next) {
-  //Enabling CORS
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-    next();
-  });
+var corsOptions = {
+  origin: 'https://642bc70bdea63b26888b656d--cosmic-daifuku-d5e2a4.netlify.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 app.use(express.urlencoded({ extended: false }));
 const jsonParser = express.json();
 app.use(jsonParser);
@@ -34,7 +31,7 @@ app.post('/add', async (req,res)=>{
       res.status(400).send("unable to save to database");
     });
 })
-app.post('/delete',async (req,res)=>{
+app.post('/delete',cors(corsOptions),async (req,res)=>{
     // console.log(req.body);
     // res.send(req.body);
   await  internData.deleteMany({ _id: req.body}).exec();
