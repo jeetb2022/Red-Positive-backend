@@ -27,16 +27,16 @@ app.post('/add',cors(), async (req,res)=>{
       res.status(400).send("unable to save to database");
     });
 })
-app.post('/delete',cors(),(req,res)=>{
+app.post('/delete',cors(),async (req,res)=>{
     // console.log(req.body);
     // res.send(req.body);
-    internData.deleteMany({ _id: req.body}).exec();
+  await  internData.deleteMany({ _id: req.body}).exec();
    
 })
-app.post('/update',cors(),(req,res)=>{
+app.post('/update',cors(), async(req,res)=>{
     console.log(req.body);
     // res.send(req.body);
-    internData.deleteOne({ _id: req.body._id}).exec();
+  await  internData.deleteOne({ _id: req.body._id}).exec();
     var myData = new internData({
       intern_name : req.body.intern_name,
       intern_email : req.body.intern_email,
