@@ -31,7 +31,7 @@ app.post('/add', async (req,res)=>{
       res.status(400).send("unable to save to database");
     });
 })
-app.post('/delete',cors(corsOptions),async (req,res)=>{
+app.post('/delete',async (req,res)=>{
     // console.log(req.body);
     // res.send(req.body);
   await  internData.deleteMany({ _id: req.body}).exec();
