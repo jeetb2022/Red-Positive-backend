@@ -55,7 +55,7 @@ app.post('/update',cors(),(req,res)=>{
       res.send(req.body);
 })
 
-app.post('/email',async(req,res)=>{
+app.post('/email',cors(),async(req,res)=>{
   const data = await internData.find().where('_id').in(req.body).exec();
 //   let transporter = await nodemailer.createTransport({
 //     service: 'gmail',
