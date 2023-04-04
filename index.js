@@ -53,7 +53,7 @@ app.post('/update',async(req,res)=>{
         console.log(("item not saved to database"));
         // res.status(400).send("unable to save to database");
       });
-      res.send(req.body);
+     await res.send(req.body);
 })
 
 app.post('/email',async(req,res)=>{
