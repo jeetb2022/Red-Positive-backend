@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: false }));
 const jsonParser = express.json();
 app.use(jsonParser);
-app.post('/add',cors(), async (req,res)=>{
+app.post('/add', async (req,res)=>{
  await internData.deleteOne({ _id : null}).exec();
   var myData = new internData({
     intern_name : req.body.intern_name,
@@ -34,13 +34,13 @@ app.post('/add',cors(), async (req,res)=>{
       res.status(400).send("unable to save to database");
     });
 })
-app.post('/delete',cors(),async (req,res)=>{
+app.post('/delete',async (req,res)=>{
     // console.log(req.body);
     // res.send(req.body);
   await  internData.deleteMany({ _id: req.body}).exec();
    
 })
-app.post('/update',cors(), async(req,res)=>{
+app.post('/update',async(req,res)=>{
     console.log(req.body);
     // res.send(req.body);
   await  internData.deleteOne({ _id: req.body._id}).exec();
@@ -62,7 +62,7 @@ app.post('/update',cors(), async(req,res)=>{
       res.send(req.body);
 })
 
-app.post('/email',cors(),async(req,res)=>{
+app.post('/email',async(req,res)=>{
   const data = await internData.find().where('_id').in(req.body).exec();
 //   let transporter = await nodemailer.createTransport({
 //     service: 'gmail',
