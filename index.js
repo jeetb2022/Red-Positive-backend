@@ -35,7 +35,7 @@ app.post('/delete',async (req,res)=>{
    
 })
 app.post('/update',async(req,res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     // res.send(req.body);
   await  internData.deleteOne({ _id: req.body._id}).exec();
     var myData = new internData({
@@ -46,14 +46,14 @@ app.post('/update',async(req,res)=>{
     });
     console.log(myData);
    await myData.save()
-      .then(item => {
-        console.log(("item saved to database"));
-      })
-      .catch(err => {
-        console.log(("item not saved to database"));
-        // res.status(400).send("unable to save to database");
-      });
-     await res.send(req.body);
+   .then(item => {
+    res.send("item saved to database");
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(400).send("unable to save to database");
+  });
+      // res.send(req.body);
 })
 
 app.post('/email',async(req,res)=>{
